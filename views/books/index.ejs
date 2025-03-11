@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Book Collection | Library App</title>
+</head>
+
+<body>
+  <h1>Your Book Collection</h1>
+  <p>Browse through all the books in your library</p>
+  
+  <div class="container">
+    <% books.forEach(book => { %>
+      <div class="book-item">
+        <div class="book-main-info">
+          <span class="book-title"><%= book.title %></span>
+          <div class="book-actions">
+            <a href="/books/<%= book._id %>" class="btn-view">View Details</a>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+  
+  <nav>
+    <ul>
+      <li>
+        <a href="/">🏠 Home</a>
+      </li>
+      <li>
+        <a href="/books/new">📖 Add New Book</a>
+      </li>
+    </ul>
+  </nav>
+</body>
+
+</html>
