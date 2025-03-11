@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Edit <%= book.title %> | Library App</title>
+</head>
+
+<body>
+  <h1>Edit Book</h1>
+  <p>Update the details of your book</p>
+  
+  <div class="container">
+    <form action="/books/<%= book._id %>?_method=PUT" method="POST" class="book-form">
+      <div class="form-group">
+        <label for="title">Title *</label>
+        <input type="text" id="title" name="title" value="<%= book.title %>" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="author">Author *</label>
+        <input type="text" id="author" name="author" value="<%= book.author %>" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="format">Format *</label>
+        <select id="format" name="format" required>
+          <option value="Hardcover" <%= book.format === 'Hardcover' ? 'selected' : '' %>>Hardcover</option>
+          <option value="Paperback" <%= book.format === 'Paperback' ? 'selected' : '' %>>Paperback</option>
+          <option value="E-book" <%= book.format === 'E-book' ? 'selected' : '' %>>E-book</option>
+          <option value="Audiobook" <%= book.format === 'Audiobook' ? 'selected' : '' %>>Audiobook</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="pages">Pages *</label>
+        <input type="number" id="pages" name="pages" min="1" value="<%= book.pages %>" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="status">Status *</label>
+        <select id="status" name="status" required>
+          <option value="Unread" <%= book.status === 'Unread' ? 'selected' : '' %>>Unread</option>
+          <option value="Reading" <%= book.status === 'Reading' ? 'selected' : '' %>>Reading</option>
+          <option value="Finished" <%= book.status === 'Finished' ? 'selected' : '' %>>Finished</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="notes">Notes</label>
+        <textarea id="notes" name="notes" rows="4"><%= book.notes %></textarea>
+      </div>
+      
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Update Book</button>
+        <a href="/books/<%= book._id %>" class="btn-secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+  
+  <nav>
+    <ul>
+      <li>
+        <a href="/">🏠 Home</a>
+      </li>
+      <li>
+        <a href="/books">📚 Browse Books</a>
+      </li>
+    </ul>
+  </nav>
+</body>
+
+</html>
