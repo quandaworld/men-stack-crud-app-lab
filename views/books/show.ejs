@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title><%= book.title %></title>
+</head>
+
+<body>
+  <h1>Book Details</h1>
+  
+  <div class="container book-details-container">
+    <div class="book-header">
+      <h2 class="book-title"><%= book.title %></h2>
+    </div>
+    
+    <div class="book-info">
+      <div class="info-group">
+        <label>Author</label>
+        <p><%= book.author %></p>
+      </div>
+      
+      <div class="info-group">
+        <label>Format</label>
+        <p><%= book.format %></p>
+      </div>
+      
+      <div class="info-group">
+        <label>Pages</label>
+        <p><%= book.pages %></p>
+      </div>
+
+      <div class="info-group">
+        <label>Status</label>
+        <p><%= book.status %></p>
+      </div>
+
+      <div class="info-group">
+        <label>Notes</label>
+        <p><%= book.notes %></p>
+      </div>
+      
+    </div>
+    
+    <div class="book-actions">
+      <a href="/books/<%= book._id %>/edit" class="btn-primary">Edit</a>
+      <form action="/books/<%= book._id %>?_method=DELETE" method="POST" class="delete-form">
+        <button type="submit" class="btn-delete">Delete</button>
+      </form>
+    </div>
+  </div>
+  
+  <nav>
+    <ul>
+      <li>
+        <a href="/">🏠 Home</a>
+      </li>
+      <li>
+        <a href="/books">📚 Browse Books</a>
+      </li>
+      <li>
+        <a href="/books/new">📖 Add New Book</a>
+      </li>
+    </ul>
+  </nav>
+</body>
+
+</html>
