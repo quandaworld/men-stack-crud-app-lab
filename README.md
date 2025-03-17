@@ -11,7 +11,7 @@ This app is a Personal Library management system that allows users to add, view,
 
 ## Attributions
 
-This is a lab submission of General Assembly coursework.
+This is a lab submission for General Assembly coursework.
 
 ## Technologies Used
 
